@@ -3,7 +3,7 @@ import { Form } from "./components/form/Form";
 
 function App() {
   return (
-    <div className="App">
+    <div className="container w-50">
       <h1>Hello word</h1>
       <Form />
     </div>

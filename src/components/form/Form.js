@@ -8,14 +8,12 @@ export const Form = () => {
           Email address
         </label>
         <input
-          type="email"
+          type="text"
           className="form-control"
           id="exampleInputEmail1"
           aria-describedby="emailHelp"
+          placeholder="Enter email"
         />
-        <div id="emailHelp" className="form-text">
-          We'll never share your email with anyone else.
-        </div>
       </div>
       <div className="mb-3">
         <label for="exampleInputPassword1" className="form-label">
@@ -25,18 +23,10 @@ export const Form = () => {
           type="password"
           className="form-control"
           id="exampleInputPassword1"
+          placeholder="Password"
         />
       </div>
-      <div class="mb-3 form-check">
-        <input
-          type="checkbox"
-          className="form-check-input"
-          id="exampleCheck1"
-        />
-        <label className="form-check-label" for="exampleCheck1">
-          Check me out
-        </label>
-      </div>
+
       <button type="submit" className="btn btn-primary">
         Submit
       </button>

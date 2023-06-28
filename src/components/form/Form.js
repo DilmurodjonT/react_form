@@ -37,6 +37,7 @@ export const Form = () => {
       style = {
         border: "1px solid green",
       };
+      setErr("");
     }
     setstyled(style);
     setValue(elInputValue);

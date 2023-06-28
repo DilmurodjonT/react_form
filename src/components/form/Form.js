@@ -1,14 +1,44 @@
-import React from "react";
+import React, { useState } from "react";
 
 export const Form = () => {
+  const [inputValue, setValue] = useState("");
+  const [styled, setstyled] = useState({});
+
+  const formChangeHandler = (e) => {
+    e.preventDefault();
+    let style = {};
+    if (inputValue === "") {
+      style = {
+        border: "1px solid red",
+      };
+    } else {
+      style = {
+        border: "1px solid green",
+      };
+    }
+
+    setstyled(style);
+  };
+
+  const changeNameHandler = (e) => {
+    let elInputName = e.target.name;
+    let elInputValue = e.target.value;
+
+    setValue({ [elInputName]: elInputValue });
+  };
+
+  console.log(inputValue);
   return (
-    <form>
+    <form onSubmit={formChangeHandler}>
       <div className="mb-3">
-        <label for="exampleInputEmail1" className="form-label">
+        <label htmlFor="exampleInputEmail1" className="form-label">
           Email address
         </label>
         <input
+          onChange={changeNameHandler}
+          style={styled}
           type="text"
+          name="text"
           className="form-control"
           id="exampleInputEmail1"
           aria-describedby="emailHelp"
@@ -16,11 +46,13 @@ export const Form = () => {
         />
       </div>
       <div className="mb-3">
-        <label for="exampleInputPassword1" className="form-label">
+        <label htmlFor="exampleInputPassword1" className="form-label">
           Password
         </label>
         <input
+          onChange={changeNameHandler}
           type="password"
+          name="password"
           className="form-control"
           id="exampleInputPassword1"
           placeholder="Password"

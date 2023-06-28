@@ -3,6 +3,7 @@ import React, { useState } from "react";
 export const Form = () => {
   const [inputValue, setValue] = useState("");
   const [styled, setstyled] = useState({});
+  const [err, setErr] = useState("");
 
   const formChangeHandler = (e) => {
     e.preventDefault();
@@ -23,8 +24,22 @@ export const Form = () => {
   const changeNameHandler = (e) => {
     let elInputName = e.target.name;
     let elInputValue = e.target.value;
+    // let err = "";
+    let a = { [elInputName]: elInputValue };
 
-    setValue({ [elInputName]: elInputValue });
+    let style = {};
+    if (a[elInputName] === "") {
+      style = {
+        border: "1px solid red",
+      };
+      setErr("Iltimos qiymat kiriting");
+    } else {
+      style = {
+        border: "1px solid green",
+      };
+    }
+    setstyled(style);
+    setValue(elInputValue);
   };
 
   console.log(inputValue);
@@ -44,13 +59,14 @@ export const Form = () => {
           aria-describedby="emailHelp"
           placeholder="Enter email"
         />
+        <p style={{ color: "red" }}>{err}</p>
       </div>
       <div className="mb-3">
         <label htmlFor="exampleInputPassword1" className="form-label">
           Password
         </label>
         <input
-          onChange={changeNameHandler}
+          // onChange={changeNameHandler}
           type="password"
           name="password"
           className="form-control"
